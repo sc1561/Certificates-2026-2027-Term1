@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>شهادات الفصل الأول 2026/2027 – مدرسة أبو القاسم الزهراوي</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --red:#d71920;
+  --green:#007a3d;
+  --green2:#0ea85f;
+  --bg1:#e8f1ff;
+  --bg2:#d8e9f7;
+  --text:#172033;
+  --muted:#667085;
+  --card:rgba(255,255,255,.86);
+  --border:rgba(255,255,255,.75);
+  --shadow:0 14px 35px rgba(15,23,42,.12);
+  --radius:24px;
+}
+
+body{
+  font-family:'Tajawal','Cairo',sans-serif;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  color:var(--text);
+  min-height:100vh;
+  line-height:1.7;
+}
+
+header{
+  background:linear-gradient(135deg,rgba(215,25,32,.92),rgba(181,21,27,.9));
+  color:#fff;
+  text-align:center;
+  padding:28px 16px 24px;
+  box-shadow:0 8px 25px rgba(0,0,0,.18);
+}
+
+.header-logo{
+  width:82px;
+  height:82px;
+  object-fit:contain;
+  border-radius:50%;
+  background:rgba(255,255,255,.18);
+  padding:8px;
+  margin-bottom:12px;
+}
+
+.header-logo-placeholder{
+  width:82px;
+  height:82px;
+  border-radius:50%;
+  background:rgba(255,255,255,.2);
+  margin:0 auto 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:36px;
+}
+
+header h1{
+  font-size:clamp(1.2rem,4.5vw,1.8rem);
+  font-weight:900;
+}
+
+header h2{
+  font-size:clamp(.9rem,3.5vw,1.05rem);
+  font-weight:500;
+  opacity:.95;
+}
+
+.privacy-banner{
+  background:rgba(255,248,231,.88);
+  color:#9a5a00;
+  padding:12px 18px;
+  text-align:center;
+  font-weight:700;
+  border-bottom:2px solid #f3b442;
+}
+
+main{
+  width:100%;
+  max-width:680px;
+  margin:auto;
+  padding:26px 16px 44px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.welcome-card,
+.search-card,
+#result,
+#error-msg,
+#loading{
+  background:var(--card);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.welcome-card{
+  padding:17px 20px;
+  border-right:6px solid var(--green);
+  font-weight:700;
+}
+
+.search-card{
+  padding:24px 20px;
+}
+
+.search-card label{
+  display:block;
+  margin-bottom:10px;
+  font-size:1.05rem;
+  font-weight:900;
+}
+
+.input-wrapper{
+  position:relative;
+}
+
+.input-wrapper input{
+  width:100%;
+  height:56px;
+  border:2px solid #edf2f7;
+  border-radius:18px;
+  background:#fff;
+  padding:0 48px 0 48px;
+  font-size:1.05rem;
+  font-weight:700;
+  text-align:center;
+  direction:ltr;
+  font-family:'Tajawal',sans-serif;
+  outline:none;
+}
+
+.input-wrapper input:focus{
+  border-color:var(--red);
+  box-shadow:0 0 0 4px rgba(215,25,32,.13);
+}
+
+.clear-input{
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  width:32px;
+  height:32px;
+  border:0;
+  border-radius:50%;
+  background:#eef2f7;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.btn-search,
+.btn-download{
+  width:100%;
+  border:0;
+  text-decoration:none;
+  color:#fff;
+  font-family:'Tajawal',sans-serif;
+  font-weight:900;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.btn-search{
+  margin-top:16px;
+  height:58px;
+  border-radius:18px;
+  background:linear-gradient(135deg,var(--red),#b5151b);
+  font-size:1.08rem;
+}
+
+.btn-search:active,
+.btn-download:active{
+  transform:scale(.98);
+}
+
+.btn-search:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+#loading{
+  display:none;
+  padding:20px;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  font-weight:800;
+}
+
+.spinner{
+  width:38px;
+  height:38px;
+  border:4px solid rgba(215,25,32,.18);
+  border-top-color:var(--red);
+  border-radius:50%;
+  animation:spin .75s linear infinite;
+}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+#result{
+  display:none;
+  padding:20px;
+  overflow:hidden;
+  position:relative;
+}
+
+#result::before{
+  content:"🇴🇲";
+  position:absolute;
+  top:-22px;
+  left:-18px;
+  font-size:120px;
+  opacity:.045;
+  pointer-events:none;
+}
+
+.result-header{
+  background:linear-gradient(135deg,#e8fff2,#f7fffb);
+  border:2px solid rgba(14,168,95,.22);
+  border-radius:22px;
+  padding:18px;
+  text-align:center;
+  margin-bottom:16px;
+}
+
+.result-icon{
+  width:66px;
+  height:66px;
+  margin:0 auto 10px;
+  background:rgba(14,168,95,.14);
+  color:var(--green);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+}
+
+.result-header h3{
+  color:var(--green);
+  font-size:1.45rem;
+  font-weight:900;
+}
+
+.result-header p{
+  color:var(--muted);
+  font-weight:700;
+  font-size:.95rem;
+}
+
+.info-grid{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.info-item{
+  background:#fff;
+  border:1px solid #edf2f7;
+  border-radius:18px;
+  padding:14px 16px;
+  box-shadow:0 6px 18px rgba(15,23,42,.05);
+}
+
+.info-item .label{
+  color:var(--muted);
+  font-size:.85rem;
+  font-weight:800;
+  margin-bottom:5px;
+}
+
+.info-item .value{
+  color:var(--text);
+  font-size:1.15rem;
+  font-weight:900;
+  line-height:1.9;
+  word-break:normal;
+  overflow-wrap:break-word;
+  white-space:normal;
+}
+
+.btn-download{
+  height:64px;
+  border-radius:20px;
+  background:linear-gradient(135deg,var(--green),var(--green2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:1.15rem;
+  box-shadow:0 10px 22px rgba(0,122,61,.22);
+}
+
+#error-msg{
+  display:none;
+  padding:18px;
+  border-right:6px solid var(--red);
+  background:rgba(255,241,242,.92);
+  color:#9f1239;
+  font-weight:800;
+  gap:10px;
+}
+
+footer{
+  background:rgba(15,23,42,.86);
+  color:#cbd5e1;
+  text-align:center;
+  padding:18px 14px;
+  font-size:.85rem;
+}
+
+.designer-credit{
+  background:#0b1220;
+  color:#facc15;
+  text-align:center;
+  padding:10px 12px;
+  font-size:.78rem;
+  font-weight:800;
+}
+
+.designer-credit .highlight{
+  background:rgba(250,204,21,.14);
+  padding:3px 10px;
+  border-radius:999px;
+}
+
+.toast-msg{
+  position:fixed;
+  right:16px;
+  left:16px;
+  bottom:24px;
+  max-width:420px;
+  margin:auto;
+  background:rgba(15,23,42,.92);
+  color:white;
+  padding:13px 18px;
+  border-radius:999px;
+  text-align:center;
+  font-weight:800;
+  font-size:.9rem;
+  opacity:0;
+  transition:.25s;
+  pointer-events:none;
+  z-index:9999;
+}
+
+@media(max-width:480px){
+  main{
+    padding:20px 12px 36px;
+  }
+
+  .welcome-card,
+  .search-card,
+  #result{
+    border-radius:22px;
+  }
+
+  .search-card,
+  #result{
+    padding:16px;
+  }
+
+  .result-header{
+    padding:16px 12px;
+  }
+
+  .result-header h3{
+    font-size:1.35rem;
+  }
+
+  .info-item{
+    padding:13px 14px;
+  }
+
+  .info-item .value{
+    font-size:1.08rem;
+  }
+
+  .btn-download{
+    height:62px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-logo-placeholder" aria-hidden="true">🏫</div>
+  <h1>مدرسة أبو القاسم الزهراوي للتعليم الأساسي (٥–٩)</h1>
+  <h2>شهادات الفصل الدراسي الأول</h2>
+  <p style="font-weight:800;margin-top:8px;direction:ltr">2026 / 2027</p>
+</header>
+
+<div class="privacy-banner">
+  يرجى الحفاظ على خصوصية شهادة الطالب وعدم مشاركتها مع الآخرين.
+</div>
+
+<main>
+
+  <div class="welcome-card">
+    ✨ أولياء الأمور الكرام، أدخل الرقم المدني للطالب للاطلاع على شهادة الفصل الدراسي الأول للعام 2026/2027.
+    <p id="publication-status" role="status" style="margin-top:8px;color:var(--muted)">جارٍ التحقق من توفر الشهادات…</p>
+  </div>
+
+  <div class="search-card">
+    <label for="civil-input">🔢 الرقم المدني للطالب</label>
+
+    <div class="input-wrapper">
+      <input
+        type="text"
+        id="civil-input"
+        inputmode="numeric"
+        maxlength="20"
+        placeholder="أدخل الرقم المدني هنا"
+        autocomplete="off">
+      <button type="button" class="clear-input" id="clearInputBtn" aria-label="مسح الرقم المدني">×</button>
+    </div>
+
+    <button class="btn-search" id="search-btn" onclick="performSearch()">
+      🔍 بحث عن الشهادة
+    </button>
+  </div>
+
+  <div id="loading">
+    <div class="spinner"></div>
+    <span>جارٍ البحث عن الشهادة...</span>
+  </div>
+
+  <div id="result">
+    <div class="result-header">
+      <div class="result-icon">✅</div>
+      <h3>تم العثور على الشهادة</h3>
+      <p>يمكنك تحميل المستند بصيغة PDF</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="label">👤 اسم الطالب</div>
+        <div class="value" id="r-name">—</div>
+      </div>
+
+      <div class="info-item">
+        <div class="label">🏫 الصف</div>
+        <div class="value" id="r-grade">—</div>
+      </div>
+
+      <div class="info-item">
+        <div class="label">📚 الشعبة</div>
+        <div class="value" id="r-class">—</div>
+      </div>
+
+      <div class="info-item">
+        <div class="label">🪪 الرقم المدني</div>
+        <div class="value" id="r-id">—</div>
+      </div>
+    </div>
+
+    <a id="download-link" href="#" download class="btn-download">
+      📥 تحميل الشهادة PDF
+    </a>
+  </div>
+
+  <div id="error-msg">
+    <span>⚠️</span>
+    <span id="error-text">لم يتم العثور على نتيجة. تأكد من الرقم المدني.</span>
+  </div>
+
+</main>
+
+<footer>
+  © مدرسة أبو القاسم الزهراوي للتعليم الأساسي (٥–٩) – جميع الحقوق محفوظة
+</footer>
+
+<div class="designer-credit">
+  ⚡ برمجة وتصميم <span class="highlight">أستاذ أحمد الضامري</span> 🎨
+</div>
+
+<div id="toastMessage" class="toast-msg"></div>
+
+<script>
+const DATA_URL = 'students.json';
+let studentsData = null;
+function normalizeId(value){
+  return String(value).replace(/[٠-٩]/g,c=>String(c.charCodeAt(0)-1632))
+    .replace(/[۰-۹]/g,c=>String(c.charCodeAt(0)-1776)).replace(/\D/g,'');
+}
+function updatePublicationStatus(){
+  document.getElementById('publication-status').textContent = studentsData.length
+    ? 'الشهادات المتاحة جاهزة للبحث. الشهادات غير المرفوعة ستظهر قيد التجهيز.'
+    : 'الشهادات لم تُنشر بعد. يرجى العودة بعد إعلان المدرسة.';
+}
+
+async function preloadData(){
+  try{
+    const res = await fetch(DATA_URL + '?t=' + Date.now());
+    if(!res.ok) throw new Error();
+    studentsData = await res.json();
+    if(!Array.isArray(studentsData)) throw new Error('صيغة البيانات غير صحيحة');
+    updatePublicationStatus();
+    console.log('✅ بيانات الطلاب جاهزة');
+  }catch(e){
+    studentsData = null;
+    document.getElementById('publication-status').textContent = 'تعذر التحقق من توفر الشهادات. حاول البحث مجددًا.';
+  }
+}
+
+preloadData();
+
+const inputEl = document.getElementById('civil-input');
+const clearBtn = document.getElementById('clearInputBtn');
+const searchBtn = document.getElementById('search-btn');
+
+inputEl.addEventListener('input',function(){
+  this.value = normalizeId(this.value);
+});
+
+clearBtn.addEventListener('click',()=>{
+  inputEl.value = '';
+  inputEl.focus();
+  hide('result');
+  hide('error-msg');
+  showToast('🧹 تم مسح الحقل');
+});
+
+function hide(id){
+  const el = document.getElementById(id);
+  if(el) el.style.display = 'none';
+}
+
+function show(id,display='block'){
+  const el = document.getElementById(id);
+  if(el) el.style.display = display;
+}
+
+function setLoading(on){
+  document.getElementById('loading').style.display = on ? 'flex' : 'none';
+  searchBtn.disabled = on;
+}
+
+function showToast(msg,isError=false){
+  const toast = document.getElementById('toastMessage');
+  toast.textContent = msg;
+  toast.style.background = isError ? 'rgba(153,27,27,.94)' : 'rgba(15,59,44,.94)';
+  toast.style.opacity = '1';
+
+  clearTimeout(window.toastTimeout);
+  window.toastTimeout = setTimeout(()=>{
+    toast.style.opacity = '0';
+  },3000);
+}
+
+async function performSearch(){
+  const query = normalizeId(inputEl.value);
+
+  hide('result');
+  hide('error-msg');
+
+  if(!query){
+    showToast('📛 الرجاء إدخال الرقم المدني أولاً.',true);
+    inputEl.focus();
+    return;
+  }
+
+  setLoading(true);
+
+  try{
+    if(!studentsData){
+      const res = await fetch(DATA_URL + '?t=' + Date.now());
+      if(!res.ok) throw new Error('لا يمكن تحميل بيانات الطلاب');
+      studentsData = await res.json();
+    if(!Array.isArray(studentsData)) throw new Error('صيغة البيانات غير صحيحة');
+    updatePublicationStatus();
+    }
+
+    if(!studentsData.length){
+      setLoading(false);
+      showError('الشهادات لم تُنشر بعد للفصل الدراسي الأول 2026/2027. يرجى العودة بعد إعلان المدرسة.');
+      return;
+    }
+    const student = studentsData.find(s => String(s.civil_id).trim() === query);
+
+    setLoading(false);
+
+    if(student){
+      displayStudent(student);
+      showToast(student.pdf && student.pdf !== '#' ? 'تم العثور على الشهادة' : 'بيانات الطالب موجودة، والشهادة قيد التجهيز');
+    }else{
+      showError('❌ لم يتم العثور على نتيجة بهذا الرقم المدني. يرجى التأكد من الرقم والمحاولة مجددًا.');
+    }
+
+  }catch(err){
+    setLoading(false);
+    showError('⚠️ حدث خطأ أثناء البحث. تأكد من وجود ملف students.json في نفس المجلد.');
+  }
+}
+
+function displayStudent(student){
+  document.getElementById('r-name').textContent = student.student_name || '—';
+  document.getElementById('r-grade').textContent = student.grade || '—';
+  document.getElementById('r-class').textContent = student.class || '—';
+  document.getElementById('r-id').textContent = student.civil_id || '—';
+
+  const link = document.getElementById('download-link');
+
+  const pdfReady = typeof student.pdf === 'string' && /^pdfs\/[a-zA-Z0-9/_-]+\.pdf$/.test(student.pdf);
+  document.querySelector('.result-header h3').textContent = pdfReady ? 'تم العثور على الشهادة' : 'الشهادة قيد التجهيز';
+  document.querySelector('.result-header p').textContent = pdfReady ? 'الفصل الدراسي الأول • 2026/2027' : 'يرجى العودة بعد إعلان المدرسة';
+  link.textContent = pdfReady ? '📥 تحميل شهادة الفصل الأول PDF' : '⏳ الشهادة لم تُرفع بعد';
+  link.setAttribute('aria-disabled', String(!pdfReady));
+  if(pdfReady){
+    link.href = student.pdf;
+    link.download = (student.student_name || 'شهادة') + '.pdf';
+    link.onclick = () => showToast('⏳ جارٍ تحميل الشهادة...');
+  }else{
+    link.href = '#';
+    link.onclick = e => {
+      e.preventDefault();
+      showToast('📄 رابط الشهادة غير مفعل بعد.',true);
+    };
+  }
+
+  show('result');
+  document.getElementById('result').scrollIntoView({
+    behavior:'smooth',
+    block:'start'
+  });
+}
+
+function showError(msg){
+  document.getElementById('error-text').textContent = msg;
+  show('error-msg','flex');
+  document.getElementById('error-msg').scrollIntoView({
+    behavior:'smooth',
+    block:'center'
+  });
+}
+
+inputEl.addEventListener('keypress',e=>{
+  if(e.key === 'Enter') performSearch();
+});
+
+window.addEventListener('load',()=>{
+  inputEl.focus();
+});
+</script>
+
+</body>
+</html>
