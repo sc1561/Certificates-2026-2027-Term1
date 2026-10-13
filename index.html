@@ -394,16 +394,74 @@ footer{
     height:62px;
   }
 }
+
+/* School identity · first term 2026/2027 */
+:root{--green:#086342;--green2:#159366;--red:#cb2537;--bg1:#f5faf7;--bg2:#eaf2ee;--text:#19382e;--muted:#64766e;--card:rgba(255,255,255,.94);--border:#e2ece5;--shadow:0 18px 50px rgba(25,65,45,.08)}
+body{background:radial-gradient(ellipse at 5% 35%,rgba(219,183,94,.13),transparent 38%),radial-gradient(ellipse at 95% 80%,rgba(24,148,101,.12),transparent 40%),linear-gradient(150deg,#f9fbf8,#edf5ef);overflow-x:hidden}
+header{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(130deg,#053e2c,#086342 60%,#0c7650);padding:38px 18px 40px;border-bottom:4px solid #d9b967;box-shadow:0 12px 32px rgba(5,62,44,.14)}
+header::before,header::after{content:"";position:absolute;width:290px;height:290px;border:1px solid rgba(255,255,255,.12);border-radius:50%;z-index:-1;pointer-events:none}
+header::before{right:-120px;top:-75px;box-shadow:0 0 0 35px rgba(255,255,255,.025),0 0 0 70px rgba(255,255,255,.025);animation:ambient 12s ease-in-out infinite alternate}
+header::after{left:-125px;bottom:-180px;box-shadow:0 0 0 40px rgba(255,255,255,.035);animation:ambient 15s ease-in-out infinite alternate-reverse}
+.brand-kicker{display:block;color:#ead5a0;font-size:.8rem;font-weight:700;letter-spacing:.03em;margin-bottom:14px}
+.logo-stage{width:154px;height:154px;margin:0 auto 24px;position:relative;animation:logoFloat 5s ease-in-out infinite}
+.logo-stage::before{content:"";position:absolute;inset:-9px;border:1px solid rgba(228,202,140,.6);border-radius:37px;box-shadow:0 0 32px rgba(240,218,161,.17);animation:logoGlow 5s ease-in-out infinite}
+.school-logo{display:block;width:100%;height:100%;object-fit:contain;background:white;border-radius:30px;padding:8px;box-shadow:0 16px 35px rgba(0,0,0,.18)}
+header h1{font-size:clamp(1.22rem,4.4vw,1.9rem);line-height:1.6;max-width:740px;margin:auto}
+header h2{margin-top:9px;font-weight:700;color:#ecf6ef}
+.term-badge{display:inline-flex;align-items:center;gap:10px;padding:6px 20px;margin-top:16px;border:1px solid rgba(231,210,160,.45);border-radius:999px;background:rgba(255,255,255,.08);color:#ffedc5;font-size:1rem;font-weight:800}
+.motion-toggle{display:block;margin:18px auto 0;border:1px solid rgba(255,255,255,.24);background:transparent;color:#e1eee6;font:500 .78rem 'Tajawal',sans-serif;padding:6px 14px;border-radius:999px;cursor:pointer}
+.privacy-banner{background:#fffbef;color:#78602f;border-bottom:1px solid #ede3c9;font-weight:500;font-size:.85rem;padding:10px 16px}
+main{max-width:700px;padding-top:28px;gap:20px}
+.welcome-card{border-right:4px solid var(--green);padding:20px 22px;background:#fff}
+.welcome-title{font-size:1.12rem;margin-bottom:7px;color:var(--green)}
+.welcome-card p{font-weight:500}
+#publication-status{padding:10px 13px;border-radius:12px;background:#f2f7f3;font-size:.92rem}
+.steps{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.82rem;font-weight:700;padding:1px 0}
+.steps span{display:flex;align-items:center;gap:6px}
+.steps b{display:inline-grid;place-items:center;width:23px;height:23px;border-radius:50%;background:#e2eee5;color:var(--green);font-size:.75rem}
+.search-card{padding:26px;background:#fff;border-top:3px solid var(--green)}
+.search-card label{font-size:1.12rem}
+.input-wrapper input{height:62px;font-size:1.22rem;letter-spacing:.08em;background:#fbfdfb;border-color:#dce8df}
+.input-wrapper input:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(8,99,66,.1)}
+.input-hint{font-size:.8rem;color:var(--muted);margin-top:8px;font-weight:500}
+.btn-search{position:relative;overflow:hidden;background:linear-gradient(120deg,#086342,#159366);box-shadow:0 8px 20px rgba(8,99,66,.18)}
+.btn-search:hover{box-shadow:0 12px 24px rgba(8,99,66,.24);transform:translateY(-1px)}
+.btn-search:disabled{opacity:.8;transform:none}
+.btn-search:disabled::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent,rgba(255,255,255,.2),transparent);animation:searchSheen 1.1s linear infinite}
+.btn-search:focus-visible,.btn-download:focus-visible,.clear-input:focus-visible,.motion-toggle:focus-visible{outline:3px solid #c8a354;outline-offset:4px}
+#result{animation:reveal .55s ease-out both;border:1px solid #d2e5d8}
+.result-header{background:#eef8f0;border-color:#d2e9d9}
+.result-icon{animation:successPop .6s ease-out both}
+#loading{color:var(--green)}.spinner{border-color:#dcebe2;border-top-color:var(--green)}
+.info-item{box-shadow:none;background:#fbfdfb;border-color:#e4ece6}
+footer{background:#103d2e;color:#d7e5dc;font-size:.82rem;padding:20px}
+.designer-credit{background:#0b2c21;color:#e5cb91;padding:12px}
+.designer-credit .highlight{background:rgba(229,203,145,.1)}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:99;overflow:hidden}
+.confetti i{position:absolute;top:30%;width:7px;height:13px;border-radius:2px;background:var(--spark-color);left:var(--spark-left);animation:confettiFall 1.5s ease-out forwards;animation-delay:var(--spark-delay)}
+@keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes logoGlow{0%,100%{opacity:.65}50%{opacity:1;box-shadow:0 0 38px rgba(240,218,161,.25)}}
+@keyframes ambient{to{transform:translate(18px,18px)}}
+@keyframes searchSheen{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+@keyframes reveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes successPop{0%{transform:scale(.7)}65%{transform:scale(1.08)}100%{transform:scale(1)}}
+@keyframes confettiFall{from{opacity:0;transform:translateY(-35px) rotate(0)}15%{opacity:1}to{opacity:0;transform:translateY(45vh) rotate(230deg)}}
+body.motion-off *,body.motion-off *::before,body.motion-off *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:480px){header{padding:28px 16px 30px}.logo-stage{width:132px;height:132px;margin-bottom:20px}.search-card{padding:20px 16px}.welcome-card{padding:18px 16px}.steps{gap:9px;font-size:.78rem}.input-wrapper input{font-size:1.1rem}.term-badge{margin-top:12px}}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="header-logo-placeholder" aria-hidden="true">🏫</div>
+  <span class="brand-kicker">مدرسة أبو القاسم الزهراوي • بوابة الشهادات</span>
+  <div class="logo-stage"><img src="assets/school-logo.png" alt="شعار مدرسة أبو القاسم الزهراوي" class="school-logo" width="154" height="154"></div>
   <h1>مدرسة أبو القاسم الزهراوي للتعليم الأساسي (٥–٩)</h1>
   <h2>شهادات الفصل الدراسي الأول</h2>
-  <p style="font-weight:800;margin-top:8px;direction:ltr">2026 / 2027</p>
+  <div class="term-badge"><span>العام الدراسي</span><span dir="ltr">2026 / 2027</span></div>
+  <button type="button" id="motion-toggle" class="motion-toggle" aria-pressed="false">إيقاف الحركة</button>
 </header>
 
 <div class="privacy-banner">
@@ -413,10 +471,12 @@ footer{
 <main>
 
   <div class="welcome-card">
-    ✨ أولياء الأمور الكرام، أدخل الرقم المدني للطالب للاطلاع على شهادة الفصل الدراسي الأول للعام 2026/2027.
+    <div class="welcome-title">أهلًا بكم، أولياء الأمور الكرام</div>
+    <p>شهادة أبنائكم بخطوات بسيطة. أدخل الرقم المدني للطالب للاطلاع على شهادة الفصل الدراسي الأول.</p>
     <p id="publication-status" role="status" style="margin-top:8px;color:var(--muted)">جارٍ التحقق من توفر الشهادات…</p>
   </div>
 
+  <div class="steps" aria-label="خطوات استلام الشهادة"><span><b>١</b>أدخل الرقم المدني</span><span><b>٢</b>ابحث عن الشهادة</span><span><b>٣</b>حمّل ملف PDF</span></div>
   <div class="search-card">
     <label for="civil-input">🔢 الرقم المدني للطالب</label>
 
@@ -426,11 +486,12 @@ footer{
         id="civil-input"
         inputmode="numeric"
         maxlength="20"
-        placeholder="أدخل الرقم المدني هنا"
+        placeholder="الرقم المدني للطالب" aria-describedby="input-hint"
         autocomplete="off">
       <button type="button" class="clear-input" id="clearInputBtn" aria-label="مسح الرقم المدني">×</button>
     </div>
 
+    <p class="input-hint" id="input-hint">يمكنك إدخال الأرقام بالعربية أو الإنجليزية.</p>
     <button class="btn-search" id="search-btn" onclick="performSearch()">
       🔍 بحث عن الشهادة
     </button>
@@ -441,7 +502,7 @@ footer{
     <span>جارٍ البحث عن الشهادة...</span>
   </div>
 
-  <div id="result">
+  <div id="result" aria-live="polite">
     <div class="result-header">
       <div class="result-icon">✅</div>
       <h3>تم العثور على الشهادة</h3>
@@ -475,7 +536,7 @@ footer{
     </a>
   </div>
 
-  <div id="error-msg">
+  <div id="error-msg" role="alert">
     <span>⚠️</span>
     <span id="error-text">لم يتم العثور على نتيجة. تأكد من الرقم المدني.</span>
   </div>
@@ -527,6 +588,8 @@ const searchBtn = document.getElementById('search-btn');
 
 inputEl.addEventListener('input',function(){
   this.value = normalizeId(this.value);
+  hide('result');
+  hide('error-msg');
 });
 
 clearBtn.addEventListener('click',()=>{
@@ -635,6 +698,7 @@ function displayStudent(student){
   }
 
   show('result');
+  if(pdfReady) celebrateCertificate();
   document.getElementById('result').scrollIntoView({
     behavior:'smooth',
     block:'start'
@@ -654,9 +718,40 @@ inputEl.addEventListener('keypress',e=>{
   if(e.key === 'Enter') performSearch();
 });
 
-window.addEventListener('load',()=>{
-  inputEl.focus();
+
+const motionButton = document.getElementById('motion-toggle');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let motionOff = reducedMotion.matches;
+try{motionOff = motionOff || localStorage.getItem('certificates-motion') === 'off';}catch(e){}
+function applyMotionPreference(){
+  document.body.classList.toggle('motion-off', motionOff);
+  motionButton.textContent = motionOff ? 'الحركة متوقفة' : 'إيقاف الحركة';
+  motionButton.setAttribute('aria-pressed', String(motionOff));
+}
+applyMotionPreference();
+motionButton.addEventListener('click',()=>{
+  motionOff = !motionOff;
+  applyMotionPreference();
+  try{localStorage.setItem('certificates-motion',motionOff ? 'off' : 'on');}catch(e){}
 });
+function celebrateCertificate(){
+  if(motionOff || reducedMotion.matches) return;
+  document.querySelector('.confetti')?.remove();
+  const layer = document.createElement('div');
+  layer.className = 'confetti';
+  layer.setAttribute('aria-hidden','true');
+  const colors = ['#159366','#d4b46a','#cb2537'];
+  for(let i=0;i<22;i++){
+    const spark = document.createElement('i');
+    spark.style.setProperty('--spark-left',(12+Math.random()*76)+'%');
+    spark.style.setProperty('--spark-delay',(Math.random()*.25)+'s');
+    spark.style.setProperty('--spark-color',colors[i%colors.length]);
+    layer.appendChild(spark);
+  }
+  document.body.appendChild(layer);
+  setTimeout(()=>layer.remove(),1900);
+}
+
 </script>
 
 </body>
